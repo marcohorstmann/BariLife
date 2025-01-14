@@ -14,7 +14,7 @@ struct MainView: View {
                 
             }
             Tab("Rezepte", systemImage: "receipt") {
-                Text("Test")
+                RecipeView()
             }
             Tab("Test2", systemImage: "cart") {
                 

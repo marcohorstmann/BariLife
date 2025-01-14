@@ -9,16 +9,15 @@ import Foundation
 import SwiftUI
 import SwiftData
 
-struct Meal: Identifiable {
+@Model
+class Meal: Identifiable {
     var id: UUID = UUID()
     var name: String
-    var ingredients: [MealIngredient] = []
+    var ingredients: [MealIngredient]? = []
     var instructions: String? = nil
     
-    init(id: UUID, name: String, instructions: String? = nil) {
-        self.id = id
+    init(name: String) {
         self.name = name
-        self.instructions = instructions
     }
 }
 

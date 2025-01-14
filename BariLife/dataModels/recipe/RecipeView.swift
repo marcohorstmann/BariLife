@@ -10,14 +10,30 @@ import SwiftUI
 import SwiftData
 
 struct RecipeView: View {
+    @Environment(\.modelContext) private var modelContext
     @Query var recipes: [Meal]
     
     var body: some View {
-        List {
-            ForEach(recipes) { recipe in
+        NavigationStack {
+            List {
+                ForEach(recipes) { recipe in
+                    NavigationLink(value: recipe) {
+                        RecipeDetailView(recipe: recipe)
+                    }
+                    
+                }
+                //ForEach(recipes) { recipe in
                 //NavigationLink(value: recipe) {
                 //    RecipeListRow(recipe: recipe)
                 // }
+                
+                // }
+            }
+            .navigationTitle("Rezepte")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Image(systemName: "plus")
+                }
             }
         }
     }
@@ -36,4 +52,5 @@ struct RecipeListRow: View {
 
 #Preview {
     RecipeView()
+    .modelContainer(for: [Meal.self])
 }
