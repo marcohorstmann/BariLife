@@ -10,11 +10,11 @@ import SwiftUI
 public struct RecipeDetailView: View {
     @Bindable var recipe: Meal
     public var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        Form {
             // if let recipe = recipe {
-            Text("Total leckere Pfannkuchen")
-                .font(.title)
-                .fontWeight(.bold)
+            //Text("Total leckere Pfannkuchen")
+            //    .font(.title)
+            //    .fontWeight(.bold)
             
             Text("Zutaten:")
                 .font(.headline)
@@ -41,7 +41,7 @@ public struct RecipeDetailView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle("Rezeptdetails")
+        .navigationTitle(recipe.name)
     }
 }
 

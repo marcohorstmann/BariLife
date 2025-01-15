@@ -10,7 +10,8 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-struct MealIngredient {
+@Model
+class MealIngredient {
     var foodProduct: FoodProduct
     var usedAmount: Double // Die Menge, die im Rezept verwendet wird
     var unit: WeightUnit
@@ -21,5 +22,3 @@ struct MealIngredient {
         self.unit = unit
     }
 }
-
-////xxxx

@@ -18,27 +18,29 @@ struct RecipeView: View {
             List {
                 ForEach(recipes) { recipe in
                     NavigationLink(value: recipe) {
-                        RecipeDetailView(recipe: recipe)
+                        //RecipeDetailView(recipe: recipe)
+                        Text(recipe.name)
                     }
-                    
+                    .swipeActions {
+                        Button("Delete", role: .destructive) {
+                            modelContext.delete(recipe)
+                        }
+                    }
                 }
-                //ForEach(recipes) { recipe in
-                //NavigationLink(value: recipe) {
-                //    RecipeListRow(recipe: recipe)
-                // }
-                
-                // }
-            }
+                }
             .navigationTitle("Rezepte")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Image(systemName: "plus")
+                    //Image(systemName: "plus")
+                    AddRecipeButton()
                 }
+            }
+            .navigationDestination(for: Meal.self) { recipe in
+                RecipeDetailView(recipe: recipe)
             }
         }
     }
 }
-
 struct RecipeListRow: View {
     var recipe: Meal
     var body: some View {
@@ -49,8 +51,9 @@ struct RecipeListRow: View {
         }
     }
 }
-
+/*
 #Preview {
     RecipeView()
     .modelContainer(for: [Meal.self])
 }
+*/
