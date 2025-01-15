@@ -13,7 +13,7 @@ import SwiftData
 class Meal: Identifiable {
     var id: UUID = UUID()
     var name: String
-    var ingredients: [MealIngredient]? = []
+    var ingredients: [MealIngredient] = []
     var instructions: String? = nil
     
     init(name: String) {

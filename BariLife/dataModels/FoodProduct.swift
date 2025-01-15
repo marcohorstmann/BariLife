@@ -8,7 +8,8 @@
 import Foundation
 import SwiftData
 
-struct FoodProduct {
+@Model
+class FoodProduct {
     var id: UUID = UUID()
     var name: String
     var weight: Double
