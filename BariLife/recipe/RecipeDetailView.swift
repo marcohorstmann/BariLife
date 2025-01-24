@@ -15,9 +15,10 @@ public struct RecipeDetailView: View {
                 Text("Zutaten:")
                                 .font(.headline)
                                 .fontWeight(.bold)
-                ForEach(recipe.ingredient) { ingredient in
+            /*    ForEach(recipe.ingredient) { ingredient in
                     Text("• \(ingredient.usedAmount) \(ingredient.foodProduct.name)")
                 }
+             */
             }
         }
         .navigationTitle(recipe.name)
